@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light">New Contact</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text"
+                   ngModel
+                   name="name"
+                   #nameCtrl="ngModel"
+                   required></ion-input>
+      </ion-item><ion-item>
+      <ion-label position="floating">Image URL</ion-label>
+      <ion-input type="text"
+                 ngModel
+                 name="imageUrl"
+                 #imageUrlCtrl="ngModel"
+                 required></ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-label position="floating">E-mail Address</ion-label>
+        <ion-input type="email"
+                   ngModel
+                   name="email"
+                   #emailCtrl="ngModel"
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telephone Number</ion-label>
+        <ion-input type="text"
+                   ngModel
+                   name="phoneNumber"
+                   #teleponCtrl="ngModel"
+                   required></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" expand="full" color="tertiary" [disabled]="!form.valid">
+      SAVE CONTACT
+    </ion-button>
+  </form>
+</ion-content>
